@@ -9,6 +9,10 @@ Version 1.1 (Dec 2024) - adapt to the lastest version of xeniumranger v3.0
 - selected area(s) on the Xenium sections
 
 ## Xenium Re-segmentation Using Cellpose3
+`segmentation/reseg_2step_pipe.sh` can be directly run for the 2-step re-segmentation:
+1) mask DAPI signal from interior RNA signals
+2) use masked RNA signals to segment using Cellpose3
+
 #### Version log
 - Version 0.0 - use Cellpose3 to re-seg: DAPI and interior RNA
 - Version 1.0 - use original DAPI signals, binary (invalid); add functions to convert mask .tiff to 32-bit
@@ -20,7 +24,7 @@ Version 1.1 (Dec 2024) - adapt to the lastest version of xeniumranger v3.0
 - Xeniumranger v3.0 (latest version)
 #### Usage
 ```
-$ bash segmentation/reseg_2step_pipe.sh -h
+$ bash reseg_2step_pipe.sh -h
 
 Usage: reseg_2step_pipe.sh -o outdir -x xenium_bundle -s sample_name [-d diameter] [-f filter_value]
   -o outdir         Specify the output directory
@@ -32,7 +36,7 @@ Usage: reseg_2step_pipe.sh -o outdir -x xenium_bundle -s sample_name [-d diamete
 ```
 #### Example
 ```
-$ bash segmentation/reseg_2step_pipe.sh \
+$ bash reseg_2step_pipe.sh \
   -o /dfs3b/ruic20_lab/tingty7/projects/DRG_spatial/DRG_Xenium/DRG_Xenium_241203/segmentation \
   -x /dfs3b/ruic20_lab/tingty7/data/DRG_Xenium/20241126__215026__drg/output-XETG00320__0055259__Region_2__20241126__215119 \
   -s s259_R2 \
