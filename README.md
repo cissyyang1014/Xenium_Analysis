@@ -4,7 +4,7 @@ This repository is used to analyze the Xenium data in a basic way.
 ## Basic Analsysis of Xenium Transcripts
 Version 1.1 (Dec 2024) - adapt to the lastest version of xeniumranger v3.0
 
-`basic_analysis_xenium_transcripts.ipynb` can be directly run for analysis. 2 Scenarios are included:
+`basic_analysis/basic_analysis_xenium_transcripts.ipynb` can be directly run for analysis. 2 Scenarios are included:
 - whole Xenium sections
 - selected area(s) on the Xenium sections
 
@@ -20,7 +20,7 @@ Version 1.1 (Dec 2024) - adapt to the lastest version of xeniumranger v3.0
 - Xeniumranger v3.0 (latest version)
 #### Usage
 ```
-$ bash reseg_2step_pipe.sh -h
+$ bash segmentation/reseg_2step_pipe.sh -h
 
 Usage: reseg_2step_pipe.sh -o outdir -x xenium_bundle -s sample_name [-d diameter] [-f filter_value]
   -o outdir         Specify the output directory
@@ -32,7 +32,7 @@ Usage: reseg_2step_pipe.sh -o outdir -x xenium_bundle -s sample_name [-d diamete
 ```
 #### Example
 ```
-$ bash reseg_2step_pipe.sh \
+$ bash segmentation/reseg_2step_pipe.sh \
   -o /dfs3b/ruic20_lab/tingty7/projects/DRG_spatial/DRG_Xenium/DRG_Xenium_241203/segmentation \
   -x /dfs3b/ruic20_lab/tingty7/data/DRG_Xenium/20241126__215026__drg/output-XETG00320__0055259__Region_2__20241126__215119 \
   -s s259_R2 \
@@ -41,7 +41,7 @@ $ bash reseg_2step_pipe.sh \
 ```
 
 ## Xenium Data Combination and Co-embedding with scRNA Reference
-Please see `xenium_coembed.R` as an example. The process includes:
+Please see `downstream_analysis/xenium_coembed.R` as an example. The process includes:
 1) extract and integrate xenium data from different slides/regions
 2) handle the scRNA reference (integration; if needed)
 3) co-embedding xenium data with the scRNA reference using Seurat RCPA
